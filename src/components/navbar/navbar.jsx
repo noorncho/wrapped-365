@@ -6,13 +6,13 @@ const Navbar = () => {
     const navItems = [
         {link: "/", text: "Home"},
         {link: "/topArtists", text: "Top Artists"},
-        {link: "/topSong", text: "Top Songs"}
+        {link: "/topSongs", text: "Top Songs"}
     ];
 
     const mappedNavItems = navItems.map(({link, text}, index) => {
         return(
-            <Link exact to={link} className="navbar__link" key={index}>
-                <span className="navbar__link-text">
+            <Link exact to={link} className="side-nav__link" key={index}>
+                <span className="side-nav__link-text px-4">
                     {text}
                 </span>
             </Link>
@@ -20,10 +20,7 @@ const Navbar = () => {
     });
 
     return (
-        <div className="navbar d-flex flex-column justify-content-start">
-            <br />
-            <br />
-            <br />
+        <div className="side-nav d-flex flex-column justify-content-around flex-wrap">
             {mappedNavItems}
         </div>
     )

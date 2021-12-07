@@ -10,15 +10,15 @@ import TopSongs from './pages/top-songs/top-songs';
 function App() {
   
   return (
-    <div className="App">
+    <div className="row App">
       <Router>
-        <div className="col">
+        <div className="col col-md-2 col-xl-2">
           <Navbar />
         </div>
 
-        <div className="col fix-overflow-x">
+        <div className="col">
           <Routes>
-            <Route path="/topSong" element={<TopSongs />} />
+            <Route path="/topSongs" element={<TopSongs />} />
             <Route path="/topArtists" element={<TopArtists />} />
             <Route path="/" element={<Home />} />
           </Routes>

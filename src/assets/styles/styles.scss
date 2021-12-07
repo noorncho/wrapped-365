@@ -1,1 +1,10 @@
 @import "./_vendors.scss";
+
+@import "./tiles.scss";
+@import "./lists.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

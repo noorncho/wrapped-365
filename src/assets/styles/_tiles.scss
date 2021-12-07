@@ -1,0 +1,12 @@
+
+.tile{
+    &__title{
+        font-weight: bold;
+    }
+
+    &__subtext{
+        &-followers, &-artist{
+            color: rgb(146, 146, 146);
+        }
+    }
+}

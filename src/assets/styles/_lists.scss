@@ -1,0 +1,6 @@
+.list{
+    text-align: start;
+}
+
+.info-row:nth-child(even){background-color: lightskyblue;}
+.info-row:nth-child(odd){background-color: lime;}

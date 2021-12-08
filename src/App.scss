@@ -2,4 +2,11 @@
 
 .App {
   text-align: center;
+  color: white;
+  background: rgb(201,56,154);
+  background: linear-gradient(180deg, rgba(201,56,154,1) 0%, rgba(29,34,62,1) 27%, rgba(18,18,18,1) 100%);
+}
+
+.main-page{
+  height: 100%;
 }

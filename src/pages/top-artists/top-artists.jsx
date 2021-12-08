@@ -5,7 +5,7 @@ import TopNav from '../../components/top-nav/top-nav';
 
 const TopArtists = () => {
     return (
-        <div className="top-artists">
+        <div className="top-artists vh-100">
             <h1>Top Artists</h1>
             <TopNav />
             <div className="row pb-5">

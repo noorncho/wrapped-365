@@ -5,8 +5,12 @@
     }
 
     &__subtext{
-        &-followers, &-artist{
-            color: rgb(146, 146, 146);
-        }
+        color: rgb(146, 146, 146);
+        font-size: smaller;
     }
+}
+
+.card{
+    background-color: #181818;
+    max-width: 110px;
 }

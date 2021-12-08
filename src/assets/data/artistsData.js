@@ -1,6 +1,6 @@
 const artistsData = [
     {
-        name: "artist 1",
+        name: "BTS",
         followers: "10 M",
         thumbnail: "https://via.placeholder.com/100",
         latestRelease: "New Release 1",
@@ -14,7 +14,7 @@ const artistsData = [
         rank:5
     },
     {
-        name: "artist 3",
+        name: "League of Ledgends",
         followers: "30 M",
         thumbnail: "https://via.placeholder.com/100",
         latestRelease: "New Release 3",

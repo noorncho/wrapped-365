@@ -1,20 +1,15 @@
 import React from 'react';
 import songsData from '../../assets/data/songsData';
+import Tile from '../tile/tile';
 
 const SongTile = () => {
     const songDataSorted = songsData.sort((a, b) => a.rank - b.rank);
-    const topTiles = songDataSorted.slice(0, 5).map((song, index) =>{
-        return(
-            <div className="tile px-3" key={index}>
-                <img src={song.thumbnail} alt={song.name} className="tile__thumbnail" />
-                <div className="tile__title">{song.title}</div>
-                <div className="tile__subtext-artist">{song.artist}</div>
-            </div>
-        );
-    });
+    const topTiles = songDataSorted.slice(0, 5).map((song, index) =>(
+        <Tile image={song.thumbnail} title={song.title} subtext={song.artist} key={index} />
+    ));
 
     return (
-        <div className="tiles d-flex align-items-center justify-content-center">
+        <div className="tiles d-flex align-items-center justify-content-around">
             {topTiles}
         </div>
     )

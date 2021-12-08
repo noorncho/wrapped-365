@@ -49,10 +49,10 @@ const songsData = [
         rank: 2
     },
     {
-        title:"Title",
+        title:"Example-Title",
         thumbnail:"https://via.placeholder.com/100",
-        artist:"Artist",
-        album:"Album Name",
+        artist:"Example-Artist",
+        album:"Example-Album Name",
         rank: 1
     }
 ];

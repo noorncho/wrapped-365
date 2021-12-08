@@ -18,12 +18,12 @@ const SongList = () => {
     
 
     return (
-        <div className="row list d-flex flex-column align-items-center text-left">
-            <div className="columns d-flex justify-content-around">
-                <div className="column__rank col-1">Rank {songsRanks}</div>
-                <div className="column__title col-4">Title {songsTitles}</div>
-                <div className="column__artist col-4">Artist {songsArtists}</div>
-                <div className="column__album col-3">Album {songsAlbums}</div>
+        <div className="row list d-flex flex-column align-items-center text-left pb-4">
+            <div className="columns d-flex justify-content-center">
+                <div className="column__rank col-1">Rank <hr />{songsRanks}</div>
+                <div className="column__title col-4">Title <hr />{songsTitles}</div>
+                <div className="column__artist col-4">Artist <hr />{songsArtists}</div>
+                <div className="column__album col-3">Album <hr />{songsAlbums}</div>
             </div>
         </div>
     )

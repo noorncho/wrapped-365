@@ -12,8 +12,8 @@ function App() {
   
   return (
     <div className="row App">
-      <LandingPage />
-      {/*
+      
+      
       <Router>
         <div className="col col-md-2 col-xl-2">
           <Navbar />
@@ -23,11 +23,12 @@ function App() {
           <Routes>
             <Route path="/topSongs" element={<TopSongs />} />
             <Route path="/topArtists" element={<TopArtists />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/redirect" element={<Home />} />
+            <Route path="/" element={<LandingPage />} />
           </Routes>
         </div>
       </Router>
-      */}
+      
     </div>
   );
 }

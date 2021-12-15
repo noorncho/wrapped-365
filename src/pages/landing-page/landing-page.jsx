@@ -11,7 +11,7 @@ const LandingPage = () => {
 
     return (
         <div>
-            <h1><a href={SpotifyAuth.url}>Login to Spotify</a></h1>
+            <button type="submit" onClick={SpotifyAuth.getAuthentication}>Login to Spotify</button>
         </div>
     )
 }

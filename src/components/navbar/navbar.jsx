@@ -4,7 +4,7 @@ import "./navbar.scss";
 
 const Navbar = () => {
     const navItems = [
-        {link: "/", text: "Home"},
+        {link: "/dashboard", text: "Home"},
         {link: "/topArtists", text: "Top Artists"},
         {link: "/topSongs", text: "Top Songs"}
     ];

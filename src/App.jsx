@@ -7,6 +7,7 @@ import Home from './pages/home/home';
 import TopArtists from './pages/top-artists/top-artists';
 import TopSongs from './pages/top-songs/top-songs';
 import LandingPage from './pages/landing-page/landing-page';
+import RedirectPage from './pages/redirect-page/redirect-page';
 
 function App() {
   
@@ -23,7 +24,8 @@ function App() {
           <Routes>
             <Route path="/topSongs" element={<TopSongs />} />
             <Route path="/topArtists" element={<TopArtists />} />
-            <Route path="/redirect" element={<Home />} />
+            <Route path="/dashboard" element={<Home />} />
+            <Route path="/redirect" element={<RedirectPage />} />
             <Route path="/" element={<LandingPage />} />
           </Routes>
         </div>

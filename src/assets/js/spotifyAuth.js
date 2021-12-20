@@ -23,17 +23,3 @@ export const getAuthentication = () =>{
 
     window.location.href = url;
 }
-
-//Get the has URL
-export const hash = window.location.hash.substring(1)
-                    .split("&")
-                    .reduce(function(initial, item) {
-                        if (item) {
-                            var parts = item.split("=");
-                            initial[parts[0]] = decodeURIComponent(parts[1]);
-                        }
-                        return initial;
-                    }, {});
-
-window.location.hash = "";
-export const _token = hash.access_token;

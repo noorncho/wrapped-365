@@ -1,33 +1,56 @@
-import React from 'react';
-import _ from 'lodash';
-import { getParamValues } from '../../assets/js/spotifyAuth';
-import { withRouter } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import hash from '../../assets/js/hash';
+import { Navigate, useNavigate } from "react-router-dom";
 
-class RedirectPage extends React.Component {
-    componentDidMount(){
-        const{setExpiryTime, /*history,*/ location} = this.props;
-        try{
-            if(_.isEmpty(location.hash)){
-                return this.props.history.push("/dashboard");
+const RedirectPage = () => {
+    const[topArtistsData, setTopArtistsData] = useState({});
+    const[topSongsData, setTopSongsData] = useState({});
+    const navigate = useNavigate();
+
+    const _token = hash.access_token;
+    console.log(_token);
+    localStorage.setItem('params', JSON.stringify(_token));
+    
+    const getTopArtists = () =>{
+        fetch("https://api.spotify.com/v1/me/top/artists", {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application-type',
+                'Authorization': `Bearer ${_token}`,
             }
-            const access_token = getParamValues(location.hash);
-            const expiryTime = new Date().getTime() + access_token.expires_in * 1000;
-            localStorage.setItem('params', JSON.stringify(access_token));
-            localStorage.setItem('expiry_time', expiryTime);
-            setExpiryTime(expiryTime);
-            this.props.history.push('/dashboard');
-        } catch(error){
-            this.props.history.push('/');
-        }
+        })
+        .then(response => response.json())
+        .then(data => setTopArtistsData(data))        
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
     }
-    render(){
-        return null;
+    
+    const getTopSongs = () =>{
+        fetch("https://api.spotify.com/v1/me/top/tracks", {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application-type',
+                'Authorization': `Bearer ${_token}`,
+                'Host': 'api.spotify.com'    
+            }
+        })
+        .then(response => response.json())
+        .then(data => setTopSongsData(data))
+        .catch(error => console.log(error));
     }
-    /*return (
-        <div>
-            Redirect Page
-        </div>
-    )*/
+    
+    useEffect(getTopArtists, [_token]);
+    useEffect(getTopSongs, [_token]);
+    
+    return (
+        <>
+            <h1> Redirect Page </h1>
+            {navigate("/dashboard", {songData: topSongsData})}
+            {/*<Navigate to={{pathname:"/dashboard", state: topSongsData}} />*/}
+        </>
+    );
 }
 
-export default withRouter(RedirectPage);
+export default RedirectPage;

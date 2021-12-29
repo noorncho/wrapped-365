@@ -24,3 +24,4 @@ yarn-error.log*
 
 Spotify-Auth-Stuff.txt
 process.env
+/src/assets/js/spotifyAuth.js

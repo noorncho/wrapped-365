@@ -13,8 +13,6 @@ function App() {
   
   return (
     <div className="row App">
-      
-      
       <Router>
         <div className="col col-md-2 col-xl-2">
           <Navbar />

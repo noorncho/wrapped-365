@@ -3,17 +3,17 @@ import songsData from '../../assets/data/songsData';
 
 const SongList = () => {
     const songDataSorted = songsData.sort((a, b) => a.rank - b.rank);
-    const songsRanks = songDataSorted.map(song =>(
-        <div className="info-row">{song.rank}</div>
+    const songsRanks = songDataSorted.map((song, index) =>(
+        <div className="info-row" key={index}>{song.rank}</div>
     ));
-    const songsTitles = songDataSorted.map(song =>(
-        <div className="info-row">{song.title}</div>
+    const songsTitles = songDataSorted.map((song, index) =>(
+        <div className="info-row" key={index}>{song.title}</div>
     ));
-    const songsArtists = songDataSorted.map(song =>(
-        <div className="info-row">{song.artist}</div>
+    const songsArtists = songDataSorted.map((song, index) =>(
+        <div className="info-row" key={index}>{song.artist}</div>
     ));
-    const songsAlbums = songDataSorted.map(song =>(
-        <div className="info-row">{song.album}</div>
+    const songsAlbums = songDataSorted.map((song, index) =>(
+        <div className="info-row" key={index}>{song.album}</div>
     ));
     
 

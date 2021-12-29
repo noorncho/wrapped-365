@@ -5,6 +5,9 @@ import SongTile from '../../components/song-tile/song-tile';
 import TopNav from '../../components/top-nav/top-nav';
 
 const Home = () => {
+    console.log(localStorage.getItem("songsData"));
+    console.log(localStorage.getItem("artistsData"));
+
     return (
         <div>
             <h1>Home</h1>

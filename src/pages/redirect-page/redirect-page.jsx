@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import hash from '../../assets/js/hash';
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const RedirectPage = () => {
     const[topArtistsData, setTopArtistsData] = useState({});
     const[topSongsData, setTopSongsData] = useState({});
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const _token = hash.access_token;
     console.log(_token);
@@ -18,7 +18,7 @@ const RedirectPage = () => {
                 'Content-Type': 'application/json',
                 'Accept': 'application-type',
                 'Authorization': `Bearer ${_token}`,   
-                'Host': 'api.spotify.com'
+                //'Host': 'api.spotify.com'
             }
         })
         .then(response => response.json())
@@ -48,12 +48,13 @@ const RedirectPage = () => {
     console.log(topSongsData);
     console.log(topArtistsData);
 
-    localStorage.setItem("songsData", JSON.stringify(topSongsData))
-    localStorage.setItem("artistsData", JSON.stringify(topArtistsData))
+    localStorage.setItem("songsData", JSON.stringify(topSongsData.items))
+    localStorage.setItem("artistsData", JSON.stringify(topArtistsData.items))
 
     return (
         <>
             <h1> Redirect Page </h1>
+            {navigate("/dashboard")}
             {<Navigate to="/dashboard" />}
         </>
     );

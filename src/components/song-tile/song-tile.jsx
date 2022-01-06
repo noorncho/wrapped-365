@@ -1,11 +1,11 @@
 import React from 'react';
-import songsData from '../../assets/data/songsData';
 import Tile from '../tile/tile';
 
 const SongTile = () => {
-    const songDataSorted = songsData.sort((a, b) => a.rank - b.rank);
-    const topTiles = songDataSorted.slice(0, 5).map((song, index) =>(
-        <Tile image={song.thumbnail} title={song.title} subtext={song.artist} key={index} />
+    const songsData = JSON.parse(localStorage.getItem("songsData"));
+    const songsArr = songsData.items;
+    const topTiles = songsArr.slice(0, 5).map((song, index) =>(
+        <Tile image={song.album.images[0].url} title={song.name} subtext={song.artists[0].name} key={index} />
     ));
 
     return (

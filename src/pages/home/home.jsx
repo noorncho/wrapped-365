@@ -9,8 +9,9 @@ const Home = () => {
     const songsData = JSON.parse(localStorage.getItem("songsData"));
     const songsArr = songsData.items;
     console.log(songsArr);
-    const artistsData = localStorage.getItem("artistsData");
+    const artistsData = JSON.parse(localStorage.getItem("artistsData"));
     const artistsArr = artistsData.items;
+    console.log(artistsArr);
 
     return (
         <div className="row home">

@@ -1,19 +1,19 @@
 import React from 'react';
-import songsData from '../../assets/data/songsData';
 
 const SongList = () => {
-    const songDataSorted = songsData.sort((a, b) => a.rank - b.rank);
-    const songsRanks = songDataSorted.map((song, index) =>(
-        <div className="info-row" key={index}>{song.rank}</div>
+    const songsData = JSON.parse(localStorage.getItem("songsData"));
+    const songsArr = songsData.items;
+    const songsRanks = songsArr.map((song, index) =>(
+        <div className="info-row" key={index}>{index + 1}</div>
     ));
-    const songsTitles = songDataSorted.map((song, index) =>(
-        <div className="info-row" key={index}>{song.title}</div>
+    const songsTitles = songsArr.map((song, index) =>(
+        <div className="info-row" key={index}>{song.name}</div>
     ));
-    const songsArtists = songDataSorted.map((song, index) =>(
-        <div className="info-row" key={index}>{song.artist}</div>
+    const songsArtists = songsArr.map((song, index) =>(
+        <div className="info-row" key={index}>{song.artists[0].name}</div>
     ));
-    const songsAlbums = songDataSorted.map((song, index) =>(
-        <div className="info-row" key={index}>{song.album}</div>
+    const songsAlbums = songsArr.map((song, index) =>(
+        <div className="info-row" key={index}>{song.album.name}</div>
     ));
     
 
@@ -23,7 +23,7 @@ const SongList = () => {
                 <div className="column__rank col-1">Rank <hr />{songsRanks}</div>
                 <div className="column__title col-4">Title <hr />{songsTitles}</div>
                 <div className="column__artist col-4">Artist <hr />{songsArtists}</div>
-                <div className="column__album col-3">Album <hr />{songsAlbums}</div>
+                {<div className="column__album col-3">Album <hr />{songsAlbums}</div>}
             </div>
         </div>
     )

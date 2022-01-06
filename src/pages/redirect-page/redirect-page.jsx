@@ -1,16 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import hash from '../../assets/js/hash';
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate} from "react-router-dom";
 
 const RedirectPage = () => {
     const[topArtistsData, setTopArtistsData] = useState({});
     const[topSongsData, setTopSongsData] = useState({});
-    const navigate = useNavigate();
 
     const _token = hash.access_token;
     console.log(_token);
     localStorage.setItem('params', JSON.stringify(_token));
-    
+
+    let artists;
+    const artistsRef = useRef(null);
+    let songs;
+    //const songsRef = useRef(null);
+
     const getTopArtists = () =>{
         fetch("https://api.spotify.com/v1/me/top/artists", {
             method: 'GET',
@@ -22,8 +26,12 @@ const RedirectPage = () => {
             }
         })
         .then(response => response.json())
-        .then(data => setTopArtistsData(data))        
-        .then(data => console.log(data))
+        .then(data =>{
+            artists = data;
+            console.log(artists);
+            setTopArtistsData(artists);
+        })
+        .then(() => console.log(topArtistsData))
         .catch(error => console.log(error));
     }
     
@@ -38,24 +46,28 @@ const RedirectPage = () => {
             }
         })
         .then(response => response.json())
-        .then(data => setTopSongsData(data))
+        .then(data => {
+            songs = data;
+            console.log(songs);
+            setTopSongsData(songs);
+        })
+        .then(() => console.log(topSongsData))
         .catch(error => console.log(error));
     }
     
     useEffect(getTopArtists, [_token]);
     useEffect(getTopSongs, [_token]);
     
-    console.log(topSongsData);
     console.log(topArtistsData);
+    console.log(topSongsData);
 
-    localStorage.setItem("songsData", JSON.stringify(topSongsData.items))
-    localStorage.setItem("artistsData", JSON.stringify(topArtistsData.items))
+    localStorage.setItem("artistsData", JSON.stringify(topArtistsData))
+    localStorage.setItem("songsData", JSON.stringify(topSongsData))
 
     return (
         <>
             <h1> Redirect Page </h1>
-            {navigate("/dashboard")}
-            {<Navigate to="/dashboard" />}
+            <Navigate to="/dashboard" />
         </>
     );
 }

@@ -6,8 +6,11 @@ import SongTile from '../../components/song-tile/song-tile';
 import TopNav from '../../components/top-nav/top-nav';
 
 const Home = () => {
-    console.log(localStorage.getItem("songsData"));
-    console.log(localStorage.getItem("artistsData"));
+    const songsData = JSON.parse(localStorage.getItem("songsData"));
+    const songsArr = songsData.items;
+    console.log(songsArr);
+    const artistsData = localStorage.getItem("artistsData");
+    const artistsArr = artistsData.items;
 
     return (
         <div className="row home">
